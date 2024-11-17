@@ -11,10 +11,7 @@ public class ArrayTasks {
      * Return a String[] array that will list all the seasons of the year, starting with winter.
      */
     public String[] seasonsArray() {
-        
-        return new String[] {"Winter", "Spring", "Summer", "Autumn"}; 
-
-
+        return new String[]{"Winter", "Spring", "Summer", "Autumn"};
     }
 
     /**
@@ -33,7 +30,6 @@ public class ArrayTasks {
             numbers[i] = i+1;
         }
         return numbers;
-
     }
 
     /**
@@ -45,11 +41,9 @@ public class ArrayTasks {
      * arr = [5, -3, -4] -> sum = -2
      */
     public int totalSum(int[] arr) {
-        int sum = 0;
-        for (int i = 0; i < arr.length; i++) {
-            sum +=arr[i];
-        }
-        return sum;
+        int result = 0;
+        for(int number : arr) result += number;
+        return result;
     }
 
     /**
@@ -63,13 +57,12 @@ public class ArrayTasks {
      */
     public int findIndexOfNumber(int[] arr, int number) {
         int index = -1;
-        for(int i =0; i < arr.length; i++){
-            if (arr[i] == number){
+        for (int i = 0; i < arr.length; i++) {
+            if(arr[i] == number){
                 return i;
             }
         }
         return index;
-
     }
 
     /**
@@ -89,8 +82,6 @@ public class ArrayTasks {
             index++;
         }
         return reversedArr;
-
-
     }
 
     /**
@@ -105,20 +96,18 @@ public class ArrayTasks {
      * arr = [1, 2]         -> [1, 2]
      */
     public int[] getOnlyPositiveNumbers(int[] arr) {
-        int[] array = new int[arr.length];
+        int[] newArr = new int[arr.length];
         int index = 0;
-        for(int i =0; i < arr.length; i++){
-            if (arr[i] > 0){
-                array[index] = arr[i];
+        for(int i = 0; i < arr.length; i++) {
+            if(arr[i] > 0) {
+                newArr[index] = arr[i];
                 index++;
             }
         }
         int[] resultArr = new int[index];
-        System.arraycopy(array, 0, resultArr, 0, index);
+        System.arraycopy(newArr, 0, resultArr, 0, index);
         return resultArr;
-
     }
-
     /**
      * Return a sorted, ragged, two-dimensional int[][] array following these rules:
      * Incoming one-dimensional arrays must be arranged in ascending order of their length;
