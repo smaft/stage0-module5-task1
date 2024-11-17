@@ -88,7 +88,12 @@ public class ArrayTasksTest {
 
     @ParameterizedTest
     @MethodSource("sortRaggedArrayProvider")
-    
+    public void sortRaggedArrayTest(RaggedArray arr, RaggedArray expectedArr) {
+
+        assertArrayEquals(expectedArr.getArr(), arrayTasks.sortRaggedArray(arr.getArr()),
+                "I think, something went wrong with sorting ragged array implementation");
+    }
+
 
     private static Stream<Arguments> totalSumTestProvider() {
         return getIntArraysStream(4, 100, 1000)

@@ -119,4 +119,53 @@ public class ArrayTasks {
      * arr = [[5, 4], [7]]       -> [[7], [4, 5]]
      */
     
+     public int[][] sortRaggedArray(int[][] arr) {
+        int[][] newArr = new int[arr.length][arr[1].length];
+        int lengthOfArray = 0;
+        int index = 0;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr.length; j++) {
+                if(lengthOfArray == arr[j].length) {
+                    if(lengthOfArray == arr[j].length) {
+                        if (arr[j] == null || arr[j].length <= 1) {
+                            newArr[index] = arr[j];
+                            index++;
+                        } else{
+                            newArr[index] = quickSort(arr[j], 0, arr[j].length - 1);
+                            index++;
+                        }
+
+                    }
+                }
+            }
+            lengthOfArray++;
+        }
+        return newArr;
+    }
+    public int[] quickSort(int[] arr, int low, int high) {
+        if (low < high) {
+            int partitionIndex = partition(arr, low, high);
+            quickSort(arr, low, partitionIndex - 1);
+            quickSort(arr, partitionIndex + 1, high);
+        }
+        return  arr;
+    }
+    public int partition(int[] arr, int low, int high) {
+        int pivot = arr[high];
+        int index = low - 1;
+
+        for (int j = low; j < high; j++) {
+            if (arr[j] <= pivot) {
+                index++;
+                int temp = arr[index];
+                arr[index] = arr[j];
+                arr[j] = temp;
+            }
+        }
+        int temp = arr[index+1];
+        arr[index+1] = arr[high];
+        arr[high] = temp;
+        return index + 1;
+    }
+
 }
